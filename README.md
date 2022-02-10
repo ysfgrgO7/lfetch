@@ -6,7 +6,15 @@ git clone https://github.com/ysfgrgO7/lfetch.git
 cd lfetch
 sudo make install
 ```
-## Screen Shots
+
+## Ascii support
+  - Ubuntu - Arch - gentoo - fedora - debian - alpine - void - android
+  - Any other distro will print a generic penguin
+
+## Benchmark
+![2022-02-10-165614_1600x900_scrot](https://user-images.githubusercontent.com/94284073/153433912-a9db412d-734d-4b11-a593-8e22c7ef645e.png)
+
+## Screenshots
 ### Default
 ![lfetch](https://user-images.githubusercontent.com/94284073/153406593-bc70af0f-6181-487e-917b-0e62065e37ec.png)
 
@@ -15,7 +23,3 @@ sudo make install
 
 ### No Ascii Art
 ![lfetch_no_ascii](https://user-images.githubusercontent.com/94284073/153406650-48cf386a-5c91-460f-97ff-2555809aa4a4.png)
-
-## Ascii support
-  - Ubuntu - Arch - gentoo - fedora - debian - alpine - void - android
-  - Any other distro will print a generic penguin
