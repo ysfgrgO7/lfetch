@@ -1,5 +1,6 @@
 # lfetch
 A fetch App written in lua
+
 ## Install
 ```bash
 git clone https://github.com/ysfgrgO7/lfetch.git
