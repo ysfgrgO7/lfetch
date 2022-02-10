@@ -274,20 +274,18 @@ if arg[1] == "--icons" or arg[1] == "-i" then
 	io.write(ART[7] .. "\n")
 	io.write("\n")
 	io.write(
-		YELLOW
+		RED
 			.. "          \u{f79f} "
-			.. RED
-			.. " \u{f79f} "
 			.. GREEN
+			.. " \u{f79f} "
+			.. YELLOW
 			.. " \u{f79f} "
 			.. BLUE
 			.. " \u{f79f} "
-			.. CYAN
-			.. " \u{f79f} "
 			.. PURPLE
 			.. " \u{f79f} "
-			.. WHITE
-			.. " \u{f79f} \n"
+			.. CYAN
+			.. " \u{f79f} "
 	)
 	io.write("\n")
 elseif arg[1] == "--off" or arg[1] == "-f" then
@@ -301,20 +299,18 @@ elseif arg[1] == "--off" or arg[1] == "-f" then
 	io.write(GREEN .. "pkgs   | " .. NOCOL .. pkgs() .. "\n")
 	io.write("\n")
 	io.write(
-		YELLOW
-			.. "          \u{f79f} "
-			.. RED
-			.. " \u{f79f} "
+		RED
+			.. "██"
 			.. GREEN
-			.. " \u{f79f} "
+			.. "██"
+			.. YELLOW
+			.. "██"
 			.. BLUE
-			.. " \u{f79f} "
-			.. CYAN
-			.. " \u{f79f} "
+			.. "██"
 			.. PURPLE
-			.. " \u{f79f} "
-			.. WHITE
-			.. " \u{f79f} \n"
+			.. "██"
+			.. CYAN
+			.. "██\n"
 	)
 	io.write("\n")
 elseif arg[1] == "--help" or arg[1] == "-h" then
