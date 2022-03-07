@@ -117,13 +117,13 @@ local function ascii(info)
 		return ASCII
 	elseif string.lower(info.os):find("arch") then
 		local ASCII = {
-			CYAN .. "        /\\         " .. NOCOL,
-			CYAN .. "       /  \\        " .. NOCOL,
-			CYAN .. "      /\\   \\       " .. NOCOL,
-			CYAN .. "     /  __  \\      " .. NOCOL,
-			CYAN .. "    /  (  )  \\     " .. NOCOL,
-			CYAN .. "   / __|  |__\\\\    " .. NOCOL,
-			CYAN .. "  /.\\`        \\`.\\   " .. NOCOL,
+			CYAN .. "      /\\         " .. NOCOL,
+			CYAN .. "     /  \\        " .. NOCOL,
+			CYAN .. "    /\\   \\       " .. NOCOL,
+			CYAN .. "   /      \\      " .. NOCOL,
+			CYAN .. "  /   ,,   \\     " .. NOCOL,
+			CYAN .. " /   |  |  -\\    " .. NOCOL,
+			CYAN .. "/_-''    ''-_\\   " .. NOCOL,
 		}
 		return ASCII
 	elseif string.lower(info.os):find("gentoo") then
