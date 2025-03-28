@@ -113,6 +113,7 @@ local function ascii(info)
 			YELLOW .. "    \\  --- _/  " .. NOCOL,
 			YELLOW .. "       ---(_)  " .. NOCOL,
 			NOCOL .. "               " .. NOCOL,
+			NOCOL .. "               " .. NOCOL,
 		}
 		return ASCII
 	elseif string.lower(info.os):find("arch") then
@@ -124,6 +125,19 @@ local function ascii(info)
 			CYAN .. "  /   ,,   \\     " .. NOCOL,
 			CYAN .. " /   |  |  -\\    " .. NOCOL,
 			CYAN .. "/_-''    ''-_\\   " .. NOCOL,
+			CYAN .. "                  " .. NOCOL,
+		}
+		return ASCII
+	elseif string.lower(info.os):find("manjaro") then
+		local ASCII = {
+			GREEN .. "||||||||| ||||  " .. NOCOL,
+			GREEN .. "||||||||| ||||  " .. NOCOL,
+			GREEN .. "||||      ||||  " .. NOCOL,
+			GREEN .. "|||| |||| ||||  " .. NOCOL,
+			GREEN .. "|||| |||| ||||  " .. NOCOL,
+			GREEN .. "|||| |||| ||||  " .. NOCOL,
+			GREEN .. "|||| |||| ||||  " .. NOCOL,
+			GREEN .. "                " .. NOCOL,
 		}
 		return ASCII
 	elseif string.lower(info.os):find("gentoo") then
@@ -135,6 +149,7 @@ local function ascii(info)
 			PURPLE .. "   .`       .`   " .. NOCOL,
 			PURPLE .. "  /       .`     " .. NOCOL,
 			PURPLE .. "  \\____.-`       " .. NOCOL,
+			PURPLE .. "                  " .. NOCOL,
 		}
 		return ASCII
 	elseif string.lower(info.os):find("fedora") then
@@ -144,6 +159,7 @@ local function ascii(info)
 			BLUE .. " __|__          " .. NOCOL,
 			BLUE .. "/  T            " .. NOCOL,
 			BLUE .. "\\__/            " .. NOCOL,
+			BLUE .. "                 " .. NOCOL,
 			BLUE .. "                 " .. NOCOL,
 			BLUE .. "                 " .. NOCOL,
 		}
@@ -157,6 +173,7 @@ local function ascii(info)
 			RED .. "   \\          " .. NOCOL,
 			RED .. "    `-,_      " .. NOCOL,
 			RED .. "              " .. NOCOL,
+			RED .. "              " .. NOCOL,
 		}
 		return ASCII
 	elseif string.lower(info.os):find("alpine") then
@@ -168,6 +185,7 @@ local function ascii(info)
 			BLUE .. "    / /    \\ \\/\\ \\    " .. NOCOL,
 			BLUE .. "   / / /|   \\ \\ \\ \\   " .. NOCOL,
 			BLUE .. "  /_/ /_|    \\_\\ \\_\\  " .. NOCOL,
+			BLUE .. "                          " .. NOCOL,
 		}
 		return ASCII
 	elseif string.lower(info.os):find("void") then
@@ -179,6 +197,7 @@ local function ascii(info)
 			GREEN .. "| | \\___/ | |    " .. NOCOL,
 			GREEN .. "| \\______ \\_|    " .. NOCOL,
 			GREEN .. " -_______\\         ",
+			GREEN .. "                    ",
 		}
 		return ASCII
 	elseif string.lower(info.os):find("android") then
@@ -188,6 +207,7 @@ local function ascii(info)
 			GREEN .. ' .-"" ""-.    ' .. NOCOL,
 			GREEN .. "/  O   O  \\   " .. NOCOL,
 			GREEN .. "|_________|   " .. NOCOL,
+			GREEN .. "              " .. NOCOL,
 			GREEN .. "              " .. NOCOL,
 			GREEN .. "              " .. NOCOL,
 		}
@@ -202,6 +222,7 @@ local function ascii(info)
 			WHITE .. " // \\\\   " .. NOCOL,
 			WHITE .. "/(   )\\  " .. NOCOL,
 			WHITE .. " ^`~'^   " .. NOCOL,
+			WHITE .. "         " .. NOCOL,
 			WHITE .. "         " .. NOCOL,
 		}
 		return ASCII
@@ -267,25 +288,25 @@ if arg[1] == "--icons" or arg[1] == "-i" then
 	ART = ascii(info)
 	io.write(ART[1] .. GREEN .. "\u{f05a}  | " .. NOCOL .. distro() .. "\n")
 	io.write(ART[2] .. GREEN .. "\u{f2d0}  | " .. NOCOL .. wm() .. "\n")
-	io.write(ART[3] .. GREEN .. "\u{e795}  | " .. NOCOL .. shell() .. "\n")
-	io.write(ART[4] .. GREEN .. "\u{f044}  | " .. NOCOL .. ed() .. "\n")
-	io.write(ART[5] .. GREEN .. "\u{f200}  | " .. NOCOL .. mem() .. "\n")
-	io.write(ART[6] .. GREEN .. "\u{f487}  | " .. NOCOL .. pkgs() .. "\n")
+	io.write(ART[3] .. GREEN .. "\u{f487}  | " .. NOCOL .. pkgs() .. "\n")
+	io.write(ART[4] .. GREEN .. "\u{e795}  | " .. NOCOL .. shell() .. "\n")
+	io.write(ART[5] .. GREEN .. "\u{f044}  | " .. NOCOL .. ed() .. "\n")
+	io.write(ART[6] .. GREEN .. "\u{f200}  | " .. NOCOL .. mem() .. "\n")
 	io.write(ART[7] .. "\n")
-	io.write("\n")
 	io.write(
-		RED
-			.. "          \u{f79f} "
+		ART[8]
+			.. RED
+			.. "██"
 			.. GREEN
-			.. " \u{f79f} "
+			.. "██"
 			.. YELLOW
-			.. " \u{f79f} "
+			.. "██"
 			.. BLUE
-			.. " \u{f79f} "
+			.. "██"
 			.. PURPLE
-			.. " \u{f79f} "
+			.. "██"
 			.. CYAN
-			.. " \u{f79f} "
+			.. "██\n"
 	)
 	io.write("\n")
 elseif arg[1] == "--off" or arg[1] == "-f" then
@@ -293,10 +314,10 @@ elseif arg[1] == "--off" or arg[1] == "-f" then
 	ART = ascii(info)
 	io.write(GREEN .. "os     | " .. NOCOL .. distro() .. "\n")
 	io.write(GREEN .. "wm     | " .. NOCOL .. wm() .. "\n")
+	io.write(GREEN .. "pkgs   | " .. NOCOL .. pkgs() .. "\n")
 	io.write(GREEN .. "Shell  | " .. NOCOL .. shell() .. "\n")
 	io.write(GREEN .. "ed     | " .. NOCOL .. ed() .. "\n")
 	io.write(GREEN .. "mem    | " .. NOCOL .. mem() .. "\n")
-	io.write(GREEN .. "pkgs   | " .. NOCOL .. pkgs() .. "\n")
 	io.write("\n")
 	io.write(
 		RED
@@ -324,15 +345,15 @@ else
 	ART = ascii(info)
 	io.write(ART[1] .. GREEN .. "os    | " .. NOCOL .. distro() .. "\n")
 	io.write(ART[2] .. GREEN .. "wm    | " .. NOCOL .. wm() .. "\n")
-	io.write(ART[3] .. GREEN .. "shell | " .. NOCOL .. shell() .. "\n")
-	io.write(ART[4] .. GREEN .. "ed    | " .. NOCOL .. ed() .. "\n")
-	io.write(ART[5] .. GREEN .. "mem   | " .. NOCOL .. mem() .. "\n")
-	io.write(ART[6] .. GREEN .. "pkgs  | " .. NOCOL .. pkgs() .. "\n")
+	io.write(ART[3] .. GREEN .. "pkgs  | " .. NOCOL .. pkgs() .. "\n")
+	io.write(ART[4] .. GREEN .. "shell | " .. NOCOL .. shell() .. "\n")
+	io.write(ART[5] .. GREEN .. "ed    | " .. NOCOL .. ed() .. "\n")
+	io.write(ART[6] .. GREEN .. "mem   | " .. NOCOL .. mem() .. "\n")
 	io.write(ART[7] .. "\n")
-	io.write("\n")
 	io.write(
-		RED
-			.. "          ██"
+		ART[8]
+			.. RED
+			.. "██"
 			.. GREEN
 			.. "██"
 			.. YELLOW
