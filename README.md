@@ -9,7 +9,7 @@ sudo make install
 ```
 
 ## Ascii support
-  - Ubuntu - Arch - gentoo - fedora - debian - alpine - void - android
+  - Ubuntu - Arch - Manjaro - Gentoo - Fedora - Debian - Alpine - Void - Android
   - Any other distro will print a generic penguin
 
 ## Benchmark
