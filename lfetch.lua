@@ -88,6 +88,15 @@ local function mem()
 	return opencmd([[free -h | awk '/^Mem:/ {print $3 "/" $2}' | sed 's/i//g']])
 end
 
+-- [[ CPU ]]
+local function cpu()
+	if os_family() == "unix" then
+		return opencmd("lscpu | grep 'Model name' | sed 's/Model name://g' | xargs")
+	else
+		return "Unknown CPU Info"
+	end
+end
+
 -- [[ Editor ]]
 local function ed()
 	return opencmd([[echo $EDITOR]])
@@ -291,8 +300,8 @@ if arg[1] == "--icons" or arg[1] == "-i" then
 	io.write(ART[3] .. GREEN .. "\u{f487}  | " .. NOCOL .. pkgs() .. "\n")
 	io.write(ART[4] .. GREEN .. "\u{e795}  | " .. NOCOL .. shell() .. "\n")
 	io.write(ART[5] .. GREEN .. "\u{f044}  | " .. NOCOL .. ed() .. "\n")
-	io.write(ART[6] .. GREEN .. "\u{f200}  | " .. NOCOL .. mem() .. "\n")
-	io.write(ART[7] .. "\n")
+	io.write(ART[6] .. GREEN .. "\u{f2db}  | " .. NOCOL .. cpu() .. "\n")
+	io.write(ART[7] .. GREEN .. "\u{f200}  | " .. NOCOL .. mem() .. "\n")
 	io.write(
 		ART[8]
 			.. RED
@@ -312,13 +321,13 @@ if arg[1] == "--icons" or arg[1] == "-i" then
 elseif arg[1] == "--off" or arg[1] == "-f" then
 	local info = fetch()
 	ART = ascii(info)
-	io.write(GREEN .. "os     | " .. NOCOL .. distro() .. "\n")
-	io.write(GREEN .. "wm     | " .. NOCOL .. wm() .. "\n")
-	io.write(GREEN .. "pkgs   | " .. NOCOL .. pkgs() .. "\n")
-	io.write(GREEN .. "Shell  | " .. NOCOL .. shell() .. "\n")
-	io.write(GREEN .. "ed     | " .. NOCOL .. ed() .. "\n")
-	io.write(GREEN .. "mem    | " .. NOCOL .. mem() .. "\n")
-	io.write("\n")
+	io.write(GREEN .. "os    | " .. NOCOL .. distro() .. "\n")
+	io.write(GREEN .. "wm    | " .. NOCOL .. wm() .. "\n")
+	io.write(GREEN .. "pkgs  | " .. NOCOL .. pkgs() .. "\n")
+	io.write(GREEN .. "Shell | " .. NOCOL .. shell() .. "\n")
+	io.write(GREEN .. "ed    | " .. NOCOL .. ed() .. "\n")
+	io.write(GREEN .. "cpu   | " .. NOCOL .. cpu() .. "\n")
+	io.write(GREEN .. "mem   | " .. NOCOL .. mem() .. "\n")
 	io.write(
 		RED
 			.. "██"
@@ -348,8 +357,8 @@ else
 	io.write(ART[3] .. GREEN .. "pkgs  | " .. NOCOL .. pkgs() .. "\n")
 	io.write(ART[4] .. GREEN .. "shell | " .. NOCOL .. shell() .. "\n")
 	io.write(ART[5] .. GREEN .. "ed    | " .. NOCOL .. ed() .. "\n")
-	io.write(ART[6] .. GREEN .. "mem   | " .. NOCOL .. mem() .. "\n")
-	io.write(ART[7] .. "\n")
+	io.write(ART[6] .. GREEN .. "cpu   | " .. NOCOL .. cpu() .. "\n")
+	io.write(ART[7] .. GREEN .. "mem   | " .. NOCOL .. mem() .. "\n")
 	io.write(
 		ART[8]
 			.. RED
